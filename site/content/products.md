@@ -1,5 +1,5 @@
 ---
-title: Our Coffee
+title: Our Coffee 2
 type: products
 page: /products.html
 image: /img/products/jumbotron.jpg
@@ -99,5 +99,6 @@ testimonials:
       Kaldi is the place to go if you want the best quality coffee. I love their
       stance on empowering farmers and transparency.
 ---
+
 
 
