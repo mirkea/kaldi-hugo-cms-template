@@ -25,24 +25,9 @@ class ColorControl extends React.Component {
 
 var CategoriesControl = createClass({
   handleChange: function(e) {
-    console.log("e=" + e.index +" / " + e.target.value +" / " + e.target.index + " val=" + e.target.value);
-    console.dir(e.target.name);
-    //this.props.onChange(e.target.value.split(',').map((e) => e.trim()));
-    var old = this.props.value;
-    // console.log("old=" +old[1]);
-    // //.split[","];
-    
-    // old[Number(e.target.name)] = e.target.value;
-    // var out = old.join(",");
-    ///this.props.value = this.props.value;
-    //this.props.onChange(old);
-
-    var n = Number(e.target.name);
-    var v = e.target.value;
-
-    this.props.onChange(old.map(function(val, index) {
+    this.props.onChange(this.props.value.map(function(val, index) {
       var out = val;
-      if (index==n) out = v;
+      if (index==Number(e.target.name)) out = e.target.value;
       return out;
     }));
   },
