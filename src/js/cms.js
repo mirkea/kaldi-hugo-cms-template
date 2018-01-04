@@ -1,5 +1,6 @@
 import React from "react";
 import CMS from "netlify-cms";
+import PropTypes from 'prop-types';
 
 import PostPreview from "./cms-preview-templates/post";
 import ProductsPreview from "./cms-preview-templates/products";
@@ -31,23 +32,24 @@ var CategoriesControl = createClass({
       return out;
     }));
   },
-
+  
+  keys: String,
 
   render: function() {
     var value = this.props.value;
-    console.log("value=" +value);
-    // var obj = value.map(function(val, index) {
-    //   return h('li', {key: index}, val);
-    // });
     var that = this;
-    return <div className='ioio'>obj={
+    var labels = this.props.field.get("keys").split(",");
+    console.log("labels=" + labels)
+
+    return <div className='ioio'>{
       value.map(function(val, index) {
-        return h('input', {type:'text', value: val, name: index, onChange: that.handleChange} );
+        return <div><span>{ labels[index] }</span>{ h('input', {type:'text', value: val, name: index, onChange: that.handleChange} ) }</div>;
       })
     }</div>;
     //return  <div className='ioio' >{h('input', { type: 'text', value: value ? value.join(', ') : '', onChange: this.handleChange })} </div>;
   }
 });
+
 
 var CategoriesPreview = createClass({
   render: function() {
