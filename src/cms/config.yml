@@ -53,13 +53,5 @@ collections: # A list of collections the CMS should be able to edit
           - {label: "dashboard", name: "dashboard", widget: "string"}
           - {label: "archive", name: "archive", widget: "string"}
           - {label: "support", name: "support", widget: "string"}
-          - label: Body2
-            name: body2
-            widget: slides2
-            separator: "\n\n<!--s-->\n\n"
-          - label: Body
-            name: body
-            widget: slides
-            separator: "\n\n<!--s-->\n\n"
-
+          - {label: "categories", name: "categories", widget: "categories"}
   

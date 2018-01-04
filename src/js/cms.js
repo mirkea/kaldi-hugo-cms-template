@@ -21,14 +21,46 @@ class ColorControl extends React.Component {
   }
 }
 
+
+
 var CategoriesControl = createClass({
   handleChange: function(e) {
-    this.props.onChange(e.target.value.split(',').map((e) => e.trim()));
+    console.log("e=" + e.index +" / " + e.target.value +" / " + e.target.index + " val=" + e.target.value);
+    console.dir(e.target.name);
+    //this.props.onChange(e.target.value.split(',').map((e) => e.trim()));
+    var old = this.props.value;
+    // console.log("old=" +old[1]);
+    // //.split[","];
+    
+    // old[Number(e.target.name)] = e.target.value;
+    // var out = old.join(",");
+    ///this.props.value = this.props.value;
+    //this.props.onChange(old);
+
+    var n = Number(e.target.name);
+    var v = e.target.value;
+
+    this.props.onChange(old.map(function(val, index) {
+      var out = val;
+      if (index==n) out = v;
+      return out;
+    }));
   },
+
 
   render: function() {
     var value = this.props.value;
-    return  <div className='ioio' >{h('input', { type: 'text', value: value ? value.join(', ') : '', onChange: this.handleChange })} </div>;
+    console.log("value=" +value);
+    // var obj = value.map(function(val, index) {
+    //   return h('li', {key: index}, val);
+    // });
+    var that = this;
+    return <div className='ioio'>obj={
+      value.map(function(val, index) {
+        return h('input', {type:'text', value: val, name: index, onChange: that.handleChange} );
+      })
+    }</div>;
+    //return  <div className='ioio' >{h('input', { type: 'text', value: value ? value.join(', ') : '', onChange: this.handleChange })} </div>;
   }
 });
 
@@ -54,7 +86,7 @@ var CategoriesPreview = createClass({
 
 
 
-CMS.registerWidget('categories', CategoriesControl, CategoriesPreview);
+CMS.registerWidget('categories', CategoriesControl, CategoriesPreview); 
 // CMS.registerWidget('translations', TranslationsControl, TranslationsPreview);
 
 CMS.registerPreviewStyle("/css/main.css");
