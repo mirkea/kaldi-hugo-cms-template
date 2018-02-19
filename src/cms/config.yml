@@ -51,7 +51,6 @@ collections: # A list of collections the CMS should be able to edit
         name: "navigation"
         fields:
           - {label: "dashboard", name: "dashboard", widget: "string"}
-          - {label: "archive", name: "archive", widget: "string"}
-          - {label: "support", name: "support", widget: "string"}
-          - {label: "categories", name: "categories", widget: "categories"}
+          - {label: "search", name: "categories", widget: "categories", keys: "placeholder, action"}
+          - {label: "create", name: "categories", widget: "categories", keys: "title, header"}
   

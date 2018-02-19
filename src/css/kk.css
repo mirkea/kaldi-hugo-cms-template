@@ -1,0 +1,17 @@
+
+.ioio {
+	background: #eee;
+}
+.ioio > div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+
+}
+.ioio > div > span {
+	flex-basis: 200px;
+}
+.ioio > div > input {
+	flex-grow: 1;
+	padding: 3px 5px;
+}

@@ -85,3 +85,8 @@
 
 /* Uncomment out the line below to help debug layout issues */
 /*@import './imports/_debug';*/
+
+.ioio {
+	background: #f00;
+	border: 10px solid #0f0;
+}

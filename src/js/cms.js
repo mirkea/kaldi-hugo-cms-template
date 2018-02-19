@@ -22,13 +22,16 @@ class ColorControl extends React.Component {
   }
 }
 
-
-
 var CategoriesControl = createClass({
   handleChange: function(e) {
+    console.log("e=" + e.target.name)
     this.props.onChange(this.props.value.map(function(val, index) {
       var out = val;
-      if (index==Number(e.target.name)) out = e.target.value;
+      console.log("val=" + val +" index=" +index +" this=" + this);
+   //  if (index==Number(e.target.name.split("__")[1]))  {
+        console.log("found " +  e.target.name);
+        out = e.target.value;
+     // }
       return out;
     }));
   },
@@ -38,12 +41,11 @@ var CategoriesControl = createClass({
   render: function() {
     var value = this.props.value;
     var that = this;
-    var labels = this.props.field.get("keys").split(",");
-    console.log("labels=" + labels)
-
+    var keys = this.props.field.get("keys").split(",");
+    var labels = this.props.field.get("label");
     return <div className='ioio'>{
       value.map(function(val, index) {
-        return <div><span>{ labels[index] }</span>{ h('input', {type:'text', value: val, name: index, onChange: that.handleChange} ) }</div>;
+        return <div><span>{ keys[index] }</span>{ h('input', {type:'text', value: val, name: labels + "__" + index, onChange: that.handleChange} ) }</div>;
       })
     }</div>;
     //return  <div className='ioio' >{h('input', { type: 'text', value: value ? value.join(', ') : '', onChange: this.handleChange })} </div>;
@@ -53,9 +55,13 @@ var CategoriesControl = createClass({
 
 var CategoriesPreview = createClass({
   render: function() {
-    return h('ul', {},
+    var value = this;
+    var keys = this.props.field.get("keys").split(",");
+    var labels = this.props.field.get("label").split(",");
+    return h('div', {},
       this.props.value.map(function(val, index) {
-        return h('li', {key: index}, val);
+        return "{" + keys[index] +":" + val + "}";
+        //return h('li', {key: index}, val);
       })
     );
   }

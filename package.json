@@ -42,6 +42,8 @@
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
     "postcss-uncss": "^0.14.0",
+    "react": "^16.2.0",
+    "styled-components": "^2.4.0",
     "uncss": "^0.14.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
@@ -51,6 +53,7 @@
     "gulp-inject": "^4.2.0",
     "gulp-svgmin": "^1.2.3",
     "gulp-svgstore": "^6.1.0",
+    "npm-install-webpack-plugin": "^4.0.5",
     "svg-sprite-loader": "^0.1.2"
   }
 }
